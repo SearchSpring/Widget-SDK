@@ -24,3 +24,6 @@ Custom widgets must be hosted on your server. Here's how to do that:
 4. Add this where you would like your custom search results to appear: `<searchspring widget="simple/search" parameter="[YOUR-SEARCH-PARAMETER]"></searchspring>`
   1. **[YOUR-SEARCH-PARAMETER]** is the URL query parameter that identifies your search term
 
+# Questions or Comments?
+
+Please let us know by [creating in an issue on GitHub](https://github.com/SearchSpring/Widget-SDK/issues)
