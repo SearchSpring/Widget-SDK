@@ -1,0 +1,86 @@
+searchspring:not([_visible]) {
+	display: none;
+}
+
+.ss-slider {
+	width: 100%;
+	box-sizing: border-box;
+
+	margin: 10px 0;
+
+	* {
+		box-sizing: inherit;
+		transition: 0.05s all ease;
+	}
+
+	.labels {
+		clear: both;
+		margin: 0 0 5px 0;
+	}
+
+	.label {
+		&.min {
+			float: left;
+		}
+		&.max {
+			float: right;
+		}
+	}
+
+	.bar {
+		position: relative;
+		height: 7px;
+		border: 1px solid #ddd;
+		background: #eee;
+		border-radius: 9px;
+		margin: 0 5px;
+	}
+
+	.handle {
+		position: absolute;
+		cursor: default;
+		height: 15px;
+		width: 15px;
+		background: #333;
+		top: -5px;
+		border-radius: 15px;
+	}
+
+	.inner-handle {
+		height: 5px;
+		width: 5px;
+		border-radius: 5px;
+		position: absolute;
+		top: 5px;
+		left: 5px;
+		background: #fff;
+	}
+
+	.info {
+		visibility: hidden;
+		position: absolute;
+		top: -18px;
+		height: 18px;
+		line-height: 18px;
+		z-index: 1;
+		background: #333;
+		border: 1px solid #fff;
+		padding: 0 4px;
+		color: #fff !important;
+	}
+
+	.handle[_dragging] .info {
+		visibility: visible;
+	}
+}
+
+[_dragging] {
+	&, & * {
+		cursor: move !important;
+		-webkit-user-select: none; 
+		-moz-user-select: none; 
+		-ms-user-select: none; 
+		-o-user-select: none;
+		user-select: none;
+	}
+}
