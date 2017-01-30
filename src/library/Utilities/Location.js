@@ -31,7 +31,7 @@ class Location extends Chunk {
 		}).filter(p => {
 			return p.length >= 2;
 		}).map(p => {
-			return p.map(seg => decodeURIComponent(seg));
+			return p.map(seg => decodeURIComponent(seg.replace(/\+/g, ' ')));
 		}).forEach(p => {
 			this.add.apply(this, p);
 		});
