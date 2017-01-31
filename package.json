@@ -4,8 +4,8 @@
   "description": "SearchSpring Widget SDK",
   "main": "gulpfile.js",
   "scripts": {
-    "develop": "node_modules/gulp/bin/gulp.js develop",
-    "build": "node_modules/gulp/bin/gulp.js build"
+    "develop": "node node_modules/gulp/bin/gulp.js develop",
+    "build": "node node_modules/gulp/bin/gulp.js build"
   },
   "repository": {
    "type": "git",
