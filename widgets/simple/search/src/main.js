@@ -78,7 +78,7 @@ Widgets.register('simple/search', {
 								<ul class="item-results">
 									{ results.map(result => (
 										<li class="item">
-											<a href={ result.url }>
+											<a href={ result.url } config={ Widgets.Components.config.intellisuggest(result) }>
 												<div class="item-image">
 													<div class="image-wrapper">
 														<img

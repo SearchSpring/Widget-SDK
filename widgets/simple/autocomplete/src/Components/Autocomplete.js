@@ -160,7 +160,7 @@ let Autocomplete = {
 									<ul class="item-results">
 										{ results.slice(0, 6).map(result => (
 											<li class="item">
-												<a href={ result.url }>
+												<a href={ result.url } config={ Widgets.Components.config.intellisuggest(result) }>
 													<div class="item-image">
 														<div class="image-wrapper">
 															<img key={ result.id } src={ result.thumbnailImageUrl ? result.thumbnailImageUrl : '//cdn.searchspring.net/ajax_search/img/default_image.png' } onerror="this.src='//cdn.searchspring.net/ajax_search/img/default_image.png';" alt={ result.name } title={ result.name } />
