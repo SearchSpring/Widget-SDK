@@ -2,7 +2,6 @@ let config = {
 	intellisuggest(result) {
 		return elem => {
 			elem.addEventListener('mousedown', function() {
-				console.log(result);
 				if(window.document.images) {
 					var img = new window.Image();
 
