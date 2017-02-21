@@ -1,4 +1,25 @@
 let config = {
+	intellisuggest(result) {
+		return elem => {
+			elem.addEventListener('mousedown', function() {
+				if(window.document.images) {
+					var img = new window.Image();
+
+					var src = '//api.searchspring.net' +
+						'/api/track/track.json' +
+						'?d=' + result.intellisuggestData +
+						'&s=' + result.intellisuggestSignature +
+						'&u=' + encodeURIComponent(elem.getAttribute('href'));
+
+					if(window.document.referer) {
+						src += '&r=' + encodeURIComponent(window.document.referer);
+					}
+
+					img.src = src;
+				}
+			});
+		};
+	},
 	history: {
 		_supported() {
 			return window.history && window.history.replaceState instanceof Function;
