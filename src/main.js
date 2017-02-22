@@ -1,3 +1,5 @@
+require('babel-polyfill');
+
 require('styles/index.scss');
 
 let Widgets = require('Services/Widgets');

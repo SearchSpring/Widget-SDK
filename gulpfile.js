@@ -122,6 +122,9 @@ gulp.task('build/widgets', function() {
 
 gulp.task('build/core', function() {
 	getCore(config => {
+		config.plugins = config.plugins || [];
+		config.plugins.push(new (require('webpack')).optimize.UglifyJsPlugin());
+
 		gulp.src('src/main.js')
 			.pipe(webpack(config))
 			.pipe(gulp.dest(PROD_DIST_PATH));
