@@ -19,18 +19,9 @@ function getWebpackConf(_path) {
 					exclude: /node_modules/,
 					loader: 'babel',
 					query: {
+						presets: ['es2015'],
 						plugins: [
-							['transform-react-jsx', { pragma: 'm' }],
-							['transform-es2015-arrow-functions'],
-							['transform-es2015-block-scoped-functions'],
-							['transform-es2015-block-scoping'],
-							['transform-es2015-classes'],
-							// ['transform-es2015-object-super'],
-							['transform-es2015-destructuring'],
-							['transform-es2015-parameters'],
-							['transform-es2015-shorthand-properties'],
-							['transform-es2015-spread'],
-							['transform-es2015-template-literals'],
+							['transform-react-jsx', { pragma: 'm' }]
 						]
 					},
 				},
