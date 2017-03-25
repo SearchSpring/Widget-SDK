@@ -6,7 +6,7 @@ let Searcher = require('./Searcher');
 class Autocompleter extends Requester {
 	constructor(defaultParams, config) {
 		config = Object.assign({
-			apiProtocol: '//',
+			apiProtocol: (window.location.protocol == "https:" ? 'https://' : 'http://'),
 			apiHost: 'autocomplete2.searchspring.net',
 			apiEndpoint: '/'
 		}, config || {});
