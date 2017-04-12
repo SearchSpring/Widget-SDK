@@ -1,4 +1,9 @@
-require('babel-polyfill');
+try {
+	require('babel-polyfill');
+} catch(e) {
+	// ignore
+	console.log('Unable to load babel-polyfill');
+}
 
 require('styles/index.scss');
 
