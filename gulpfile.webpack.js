@@ -26,11 +26,6 @@ function getWebpackConf(_path) {
 					},
 				},
 				{
-					test: /\.js$/, 
-					loader: "eslint-loader", 
-					exclude: [ /node_modules/, /.test.js$/ ]
-				},
-				{
 					test: /\.scss$/,
 					exclude: /node_modules/,
 					loaders: ['style', 'css', 'sass']

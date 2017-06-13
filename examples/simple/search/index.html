@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <html>
+
+	<head>
+		<style>
+			div.ss.ac {
+				left:0px;
+			}
+		</style>
+	</head>
+
+
+<!--
 	<head>
 		<style>
 			#breaksAc {
@@ -10,13 +21,14 @@
 				position: relative;
 			}
 		</style>
-		<script searchspring-id="i845p9" src="/dev-dist/widgets.js"></script>
+		<script searchspring-id="wdi2sa" src="/dev-dist/widgets.js"></script>
 		<script>window.m = SearchSpring.Widgets.Utilities.m;</script>
 	</head>
 	<body>
 		<header>
 			<form action="">
-				<input style="float: right" type="text" placeholder="search" name="keyword"></input>
+				<input style="font-size: 24pt; width: 500px;" type="text" placeholder="What are you shopping for?" name="keyword"></input>
+				<searchspring widget="simple/autocomplete"></searchspring>
 				<div style="clear:both"></div>
 			</form>
 		</header>
@@ -24,4 +36,25 @@
 
 		<searchspring widget="simple/search" parameter="keyword"></searchspring>
 	</body>
+	-->
+
+	<body>
+
+		<div id="search">
+			<form action="">
+				<input id="express-preview-input" name="query" type="text" placeholder="What are you shopping for?" style="font-size: 24pt; width: 500px;" />
+				<searchspring widget="simple/autocomplete"></searchspring>
+			</form>
+		</div>
+		
+		<hr size="1"/>
+
+		<searchspring widget="simple/search" parameter="query"></searchspring>
+
+		<script src="/dist/widgets.js" searchspring-id="wdi2sa"></script>
+		<script>window.m = SearchSpring.Widgets.Utilities.m;</script>
+
+	</body>
 </html>
+
+

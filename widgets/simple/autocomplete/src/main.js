@@ -28,7 +28,6 @@ Widgets.register('simple/autocomplete', {
 		}));
 
 		document.body.addEventListener('click', () => {
-			console.log('click body');
 			this.vm.focus(false);
 		});
 

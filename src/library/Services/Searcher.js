@@ -7,6 +7,7 @@ class Searcher extends Requester {
 	constructor(defaultParams, config) {
 		defaultParams = Object.assign({}, {
 			domain: encodeURIComponent(window.location.href),
+			experimentalMode: 'discrete-loose',
 			resultsFormat: 'native'
 		}, defaultParams || {});
 
