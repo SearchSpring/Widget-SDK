@@ -23,6 +23,13 @@ Widgets.register('simple/search', {
 				}
 
 				searcher.request(request).then(response => {
+
+					// Redirect the shopper if so directed by merchandising directive
+					if (response.merchandising && response.merchandising.redirect) {
+						window.location.href = response.merchandising.redirect;
+						return;
+					}
+
 					state({ response, q });
 				});
 			};

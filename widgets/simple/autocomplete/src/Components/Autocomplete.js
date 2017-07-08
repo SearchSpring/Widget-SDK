@@ -11,6 +11,7 @@ let Autocomplete = {
 				});
 
 			let search = (chunk, keep) => {
+
 				autocompleter.request(chunk).then(acData => {
 					state(Object.assign(acData, keep || {}, { chunk }));
 				}, () => {
@@ -64,7 +65,11 @@ let Autocomplete = {
 			};
 
 			this.isVisible = () => {
-				return attrs.input.value && (state().results || []).length && (state().terms || []).length;
+
+				// TODO: Gate for autocomplete to not require terms
+				//return attrs.input.value && (state().results || []).length && (state().terms || []).length;
+				return attrs.input.value && (state().results || []).length;
+
 			};
 		});
 	},

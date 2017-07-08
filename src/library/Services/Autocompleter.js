@@ -16,7 +16,7 @@ class Autocompleter extends Requester {
 		this._mutators = []; // disable Requester mutator
 		this._acMutators = [];
 
-		this.searcher = new Searcher({ siteId: defaultParams.pubId });
+		this.searcher = new Searcher({ siteId: defaultParams.pubId}, { apiEndpoint: '/api/search/autocomplete.json' });
 	}
 
 	mutated(cb) {
@@ -42,7 +42,11 @@ class Autocompleter extends Requester {
 			});
 		} else {
 			super.request(params).then(acData => {
-				if(acData.terms && acData.terms.length) {
+
+				// TODO: Potential spot for autocomplete gate
+
+				// if(true || (acData.terms && acData.terms.length)) {
+					/*
 					acData.terms = (acData.terms || [])
 						.map(suggestion => suggestion.replace(/<\/?em>/g, ''))
 						.map(term => {
@@ -62,15 +66,22 @@ class Autocompleter extends Requester {
 
 							return ret;
 						});
+					*/
 
-					let query = acData.terms[0].raw;
+					acData.terms = [];  // ignore Autocomplete query suggestions
+
+					// let query = (acData.terms && acData.terms.length > 0) ? acData.terms[0].raw : params.query;
+					let query = params.query;
 
 					this.searcher.request({ q: query }).then(searchData => {
 						cb(Object.assign({}, searchData, { terms: acData.terms }), Object.assign({}, params, { q: query }));
 					}, () => deferred.reject());
+
+				/*
 				} else {
 					deferred.reject();
 				}
+				*/
 			});
 		}
 
