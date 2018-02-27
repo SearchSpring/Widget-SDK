@@ -11,7 +11,11 @@ let Autocomplete = {
 				});
 
 			let search = (chunk, keep) => {
-				autocompleter.request(chunk).then(acData => {
+				const hostConfig = window.SearchSpringWidgetSdkHostConfig ? (
+					window.SearchSpringWidgetSdkHostConfig()
+				) : {};
+
+				autocompleter.request(chunk, hostConfig.autocomplete).then(acData => {
 					state(Object.assign(acData, keep || {}, { chunk }));
 				}, () => {
 					state({});

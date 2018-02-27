@@ -241,6 +241,14 @@ class Searcher extends Requester {
 			});
 		});
 	}
+
+	request(params) {
+		const hostConfig = window.SearchSpringWidgetSdkHostConfig ? (
+			window.SearchSpringWidgetSdkHostConfig()
+		) : {};
+
+		return super.request(params, hostConfig.search || {});
+	}
 }
 
 module.exports = Searcher;

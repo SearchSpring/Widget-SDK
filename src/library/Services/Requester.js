@@ -10,10 +10,12 @@ class Requester {
 		this._mutators = [];
 	}
 
-	request(params) {
+	request(params, config = {}) {
+		config = Object.assign({}, this._config, config);
+
 		this._hasRequested = true;
 
-		let urlBase = this._config.apiProtocol + this._config.apiHost + this._config.apiEndpoint;
+		let urlBase = config.apiProtocol + config.apiHost + config.apiEndpoint;
 
 		let urlQuery = this._getQuery(params);
 

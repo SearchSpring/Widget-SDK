@@ -26,6 +26,10 @@ class Autocompleter extends Requester {
 	}
 
 	request(params) {
+		const hostConfig = window.SearchSpringWidgetSdkHostConfig ? (
+			window.SearchSpringWidgetSdkHostConfig()
+		) : {};
+
 		params = this._asState(params);
 
 		let deferred = m.deferred();
@@ -41,7 +45,7 @@ class Autocompleter extends Requester {
 				cb(data, params);
 			});
 		} else {
-			super.request(params).then(acData => {
+			super.request(params, hostConfig.autocomplete || {}).then(acData => {
 				if(acData.terms && acData.terms.length) {
 					acData.terms = (acData.terms || [])
 						.map(suggestion => suggestion.replace(/<\/?em>/g, ''))
