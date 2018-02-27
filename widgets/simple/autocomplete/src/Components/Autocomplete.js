@@ -100,9 +100,11 @@ let Autocomplete = {
 								<ul>
 									{terms.map(term => {
 										let location = new Widgets.Utilities.Location(attrs.action);
+										location.remove(attrs.input.name);
 										location.add(attrs.input.name, term.raw);
 
 										let chunk = new Widgets.Utilities.Chunk();
+										chunk.remove('q');
 										chunk.add('q', term.raw);
 										// TODO: Clean this up
 
