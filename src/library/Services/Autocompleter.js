@@ -41,6 +41,10 @@ class Autocompleter extends Requester {
 		};
 
 		if(params.q || params.filter) {
+			if(params.siteId) {
+				// This is already set in the constructor
+				delete params.siteId;
+			}
 			this.searcher.request(params).then(data => {
 				cb(data, params);
 			});
