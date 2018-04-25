@@ -19,6 +19,10 @@ class Location extends Chunk {
 			this.importState(initial);
 		}
 
+		if(typeof root == 'string') {
+			this.importQuery(root.split('?').slice(1)[0] || '');
+		}
+
 		this._root = (root || window.location.href).split('?')[0];
 	}
 
