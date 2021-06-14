@@ -12,7 +12,7 @@ class Searcher extends Requester {
 
 		config = Object.assign({}, {
 			apiProtocol: (window.location.protocol == "https:" ? 'https://' : 'http://'),
-			apiHost: 'api.searchspring.net',
+			apiHost: defaultParams.siteId + '.a.searchspring.io',
 			apiEndpoint: '/api/search/search.json'
 		}, config || {});
 
